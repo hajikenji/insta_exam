@@ -25,6 +25,12 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
   </div>
+  <div>
+    <p>プロフィール写真です。設定してもしなくても大丈夫です。また、後でも決められます。</p>
+    <%= form.label :my_image %>
+    <%= form.file_field :my_image%>
+  </div>
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -1,4 +1,9 @@
 <h1>Editing User</h1>
 <%= render 'form', user: @user %>
+<p>プロフィール画像を変更</p>
+<%= form_with(model: @user, local: true, ) do |f| %>
+  <%= f.file_field :my_image %>
+  <%= f.submit "変更する"%>
+<% end %>
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

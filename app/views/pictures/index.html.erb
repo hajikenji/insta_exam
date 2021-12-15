@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+      <td>User</td>
+      <td>User_Image</td>
       <th>Image</th>
       <th>comment</th>
       <th colspan="3"></th>
@@ -12,6 +14,7 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.user.user_name %></td>
+        <td><%= image_tag picture.user.my_image.url %></td>
         <td><%= image_tag picture.image.url %></td>
         <td><%= picture.comment %></td>
         <td><%= link_to 'Show', picture %></td>
