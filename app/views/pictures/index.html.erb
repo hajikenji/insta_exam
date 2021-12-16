@@ -14,10 +14,10 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.user.user_name %></td>
-        <% if @user.my_image.url && @user.my_image %>
-          <%= image_tag @user.my_image.url %>
+        <% if picture.user.my_image.url && picture.user.my_image %>
+          <td><%= image_tag picture.user.my_image.url %></td>
         <% else %>
-          <% image_tag "default.png" %>
+          <td><%= image_tag "default.png" %></td>
         <% end %>
         <td><%= image_tag picture.image.url %></td>
         <td><%= picture.comment %></td>
