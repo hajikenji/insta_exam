@@ -24,16 +24,22 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = current_user.pictures.build(picture_params)
-
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    @commit_name = params[:commit]
+    if @picture.save
+        ContactMailer.contact_mail(@picture, @commit_name).deliver
+        redirect_to pictures_path, notice: 'Picture was successfully created. 写真が投稿されました!'
     end
+    # respond_to do |format|
+    #   if @picture.save
+    #     ContactMailer.contact_mail(@picture, @commit_name).deliver
+    #     redirect_to pictures_path, notice: 'Contact was successfully created.'
+    #     format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+    #     format.json { render :show, status: :created, location: @picture }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @picture.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /pictures/1 or /pictures/1.json

@@ -22,10 +22,11 @@ class ContactsController < ApplicationController
   # POST /contacts or /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
+    @commit_name = params[:commit]
+    # ContactMailer.contact_mail(@contact, @commit_name).deliver
     respond_to do |format|
       if @contact.save
-        ContactMailer.contact_mail(@contact).deliver
+        ContactMailer.contact_mail(@contact, @commit_name).deliver
         format.html { redirect_to @contact, notice: "Contact was successfully created." }
         format.json { render :show, status: :created, location: @contact }
       else
