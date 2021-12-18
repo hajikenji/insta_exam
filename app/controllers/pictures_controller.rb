@@ -4,10 +4,13 @@ class PicturesController < ApplicationController
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
+    
   end
 
   # GET /pictures/1 or /pictures/1.json
-  def show; end
+  def show
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
+  end
 
   def confirm
     @picture = Picture.new(picture_params)
@@ -64,6 +67,10 @@ class PicturesController < ApplicationController
       format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def picture_favorites
+    @the_picture_favorites = current_user.favorites_pictures
   end
 
   private

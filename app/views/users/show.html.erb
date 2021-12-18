@@ -11,7 +11,6 @@
   <%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>
 <%= link_to 'Back', users_path %>
-<%= link_to '写真投稿へ', pictures_path %>
 <div>
   <p>プロフィール写真</p>
   <% if @user.my_image.url && @user.my_image %>

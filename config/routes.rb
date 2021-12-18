@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :sessions, only: %i[new create destroy]
+  resources :favorites, only: %i[create destroy]
+  get '/favorite_pictures', to: 'pictures#picture_favorites'
 end

@@ -1,0 +1,18 @@
+<h1>あなたがお気に入りした投稿の一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <td>画像</td>
+      <td>コメント</td>
+    </tr>
+  </thead>
+  <% @the_picture_favorites.each do |f| %>
+    <tr>
+      <td><%= image_tag f.image.url %>
+        <td>
+          <%= f.comment %>
+        </td>
+      </td>
+    </tr>
+  <% end %>
+</thead>

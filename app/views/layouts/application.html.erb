@@ -19,6 +19,8 @@
       <%= link_to "ログイン", new_session_path %>
     <% end %>
     <%= link_to "お問い合わせ", new_contact_path %>
+    <%= link_to 'お気に入り一覧', favorite_pictures_path %>
+    <%= link_to '写真投稿へ', pictures_path %>
     <%= yield %>
   </body>
 </html>

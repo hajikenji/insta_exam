@@ -7,6 +7,10 @@
       <td>User_Image</td>
       <th>Image</th>
       <th>comment</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th>お気に入り数</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,7 +29,11 @@
         <% if picture.user_id == current_user.id %>
           <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
           <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td> </td>
+          <td> </td>
         <% end %>
+        <td> <%= picture.favorites.count %> </td>
       </tr>
     <% end %>
   </tbody>

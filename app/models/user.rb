@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
   #   validates :my_image, presence: true
   has_many :pictures, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorites_pictures, through: :favorites, source: :picture
 end
