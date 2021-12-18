@@ -7,7 +7,6 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: true
   validates :password, length: { minimum: 6 }
-  #   validates :my_image, presence: true
   has_many :pictures, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorites_pictures, through: :favorites, source: :picture

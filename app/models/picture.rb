@@ -4,5 +4,4 @@ class Picture < ApplicationRecord
   validates :comment, presence: true, length: { maximum: 150 }
   belongs_to :user
   has_many :favorites, dependent: :destroy
-  # has_many :favorites, through: :favorites, source: :user
 end
