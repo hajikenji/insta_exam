@@ -1,10 +1,11 @@
 class ContactMailer < ApplicationMailer
-  def contact_mail(contact,commit)
+  def contact_mail(contact, commit)
     @contact = contact
     @picture = contact
     
-    if commit == 'Create Contact'
+    if commit == '登録する'
       mail to: @contact.email, subject: 'お問い合わせの確認メール'
+      v
     #   mail(to: @contact.email,
     #        subject: '投稿確認メール',
     #        template_path: 'contact_mailer',
