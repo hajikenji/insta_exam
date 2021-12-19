@@ -1,9 +1,11 @@
 html {
   height: 100%;
+  margin-top: 0;
 }
 
 body {
   height: 100%;
+  margin-top: 0;
 }
 
 .content {
@@ -24,6 +26,7 @@ body {
   margin-bottom: 0;
   width: 100%;
 }
-.yield {
-  padding-bottom: 50px;
+
+.action_button {
+  padding-bottom: 150px;
 }
