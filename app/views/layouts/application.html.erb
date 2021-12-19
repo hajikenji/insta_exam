@@ -8,19 +8,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <% flash.each do |key, value|  %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in?  %>
-      <%= link_to "プロフィール", user_path(current_user.id) %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "サインアップ", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-    <% end %>
-    <%= link_to "お問い合わせ", new_contact_path %>
-    <%= link_to 'お気に入り一覧', favorite_pictures_path %>
-    <%= link_to '写真投稿へ', pictures_path %>
-    <%= yield %>
+    <div class="content">
+      <h2 class="header">instant gratin</h2>
+      <% flash.each do |key, value|  %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <% if logged_in?  %>
+        <%= link_to "プロフィール", user_path(current_user.id) %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "サインアップ", new_user_path %>
+        <%= link_to "ログイン", new_session_path %>
+      <% end %>
+      <%= link_to "お問い合わせ", new_contact_path %>
+      <%= link_to 'お気に入り一覧', favorite_pictures_path %>
+      <%= link_to '写真投稿へ', pictures_path %>
+      <%= yield %>
+      <h2 class="footer">instant gratin</h2>
+    </div>
   </body>
 </html>
