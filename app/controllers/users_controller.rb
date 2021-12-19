@@ -66,4 +66,13 @@ class UsersController < ApplicationController
       :my_image
     )
   end
+
+  def update_params
+    params.require(:user).permit(
+      :user_name,
+      :password,
+      :password_confirmation,
+      :my_image
+    )
+  end
 end
