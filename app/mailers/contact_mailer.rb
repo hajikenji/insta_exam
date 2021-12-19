@@ -5,7 +5,6 @@ class ContactMailer < ApplicationMailer
     
     if commit == '登録する'
       mail to: @contact.email, subject: 'お問い合わせの確認メール'
-      v
     #   mail(to: @contact.email,
     #        subject: '投稿確認メール',
     #        template_path: 'contact_mailer',
